@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en" dir="auto" class="light">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/deriv-logo.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+        <meta name="title" content="Education Center | Deriv Bot" />
+        <meta name="description" content="Learn automated trading with our tutorials, guides, and video courses for Deriv platform." />
+        <title>Education Center | Deriv Bot</title>
+        <style>
+            :root { font-size: 62.5%; }
+            body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; background: #f8f9ff; }
+            .main-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; border-bottom: 1px solid rgba(0, 0, 0, 0.08); }
+            .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; height: 70px; }
+            .nav-logo a { font-size: 2.4rem; font-weight: 800; color: #1a1a1a; text-decoration: none; }
+            .nav-logo span { color: #667eea; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+            .nav-menu { display: flex; gap: 40px; align-items: center; }
+            .nav-link { color: #4a5568; text-decoration: none; font-weight: 600; font-size: 1.6rem; transition: all 0.3s ease; position: relative; padding: 5px 0; }
+            .nav-link:hover, .nav-link.active { color: #667eea; }
+            .nav-link.active::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 2px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 2px; }
+            .nav-auth { display: flex; gap: 15px; align-items: center; }
+            .btn { padding: 10px 24px; border-radius: 8px; font-weight: 600; font-size: 1.5rem; text-decoration: none; transition: all 0.3s ease; cursor: pointer; border: none; min-height: 44px; }
+            .btn-outline { background: transparent; color: #667eea; border: 2px solid #667eea; }
+            .btn-outline:hover { background: #667eea; color: white; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(102, 126, 234, 0.2); }
+            .btn-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; }
+            .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4); }
+            .mobile-toggle { display: none; flex-direction: column; gap: 4px; background: none; border: none; cursor: pointer; padding: 10px; min-height: 44px; min-width: 44px; }
+            .mobile-toggle span { width: 25px; height: 3px; background: #1a1a1a; border-radius: 3px; transition: 0.3s; }
+            .mobile-menu { display: none; background: white; padding: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); border-top: 1px solid rgba(0, 0, 0, 0.08); }
+            .mobile-link { display: block; padding: 15px 0; color: #4a5568; text-decoration: none; font-weight: 600; font-size: 1.8rem; border-bottom: 1px solid rgba(0, 0, 0, 0.05); min-height: 44px; display: flex; align-items: center; }
+            .mobile-link:last-child { border-bottom: none; }
+            .mobile-link.active { color: #667eea; }
+            .mobile-auth { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(0, 0, 0, 0.08); }
+            .page-container { max-width: 1200px; margin: 90px auto 40px; padding: 0 20px; }
+            .page-title { font-size: 4.2rem; font-weight: 800; margin-bottom: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+            .page-subtitle { font-size: 1.8rem; color: #666; margin-bottom: 40px; line-height: 1.6; }
+            .courses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 40px; }
+            .course-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); border: 1px solid rgba(0, 0, 0, 0.05); transition: all 0.3s ease; }
+            .course-card:hover { transform: translateY(-5px); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12); }
+            .course-header { padding: 30px 30px 20px; }
+            .course-level { display: inline-block; padding: 5px 15px; background: #e3f2fd; color: #1976d2; border-radius: 20px; font-size: 1.2rem; font-weight: 600; margin-bottom: 15px; }
+            .course-level.beginner { background: #e7f4e4; color: #2e7d32; }
+            .course-level.advanced { background: #ffeaea; color: #d32f2f; }
+            .course-name { font-size: 2.2rem; font-weight: 700; margin-bottom: 15px; color: #1a1a1a; }
+            .course-desc { font-size: 1.5rem; color: #666; line-height: 1.6; margin-bottom: 20px; }
+            .course-meta { display: flex; gap: 20px; font-size: 1.4rem; color: #888; }
+            .course-content { padding: 0 30px 30px; }
+            .module-list { list-style: none; padding: 0; margin: 0; }
+            .module-list li { padding: 12px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); font-size: 1.4rem; color: #555; display: flex; align-items: center; }
+            .module-list li:last-child { border-bottom: none; }
+            .module-list li:before { content: "▶"; color: #667eea; margin-right: 10px; font-size: 1rem; }
+            .main-footer { background: #1a1a1a; color: white; padding: 60px 20px 30px; margin-top: 80px; }
+            .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+            .footer-column h3 { font-size: 2rem; margin-bottom: 25px; color: white; }
+            .footer-links { list-style: none; padding: 0; }
+            .footer-links li { margin-bottom: 15px; }
+            .footer-links a { color: #aaa; text-decoration: none; font-size: 1.6rem; transition: color 0.3s; }
+            .footer-links a:hover { color: #667eea; }
+            .copyright { text-align: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); color: #888; font-size: 1.4rem; }
+            @media (max-width: 768px) {
+                .nav-menu, .nav-auth { display: none; }
+                .mobile-toggle { display: flex; }
+                .mobile-menu.active { display: block; }
+                .page-title { font-size: 3rem; }
+                .courses-grid { grid-template-columns: 1fr; }
+                .course-card { margin: 0 10px; }
+                .footer-container { grid-template-columns: 1fr; text-align: center; }
+            }
+        </style>
+    </head>
+    <body class="body theme theme--light">
+        <nav class="main-nav">
+            <div class="nav-container">
+                <div class="nav-logo"><a href="index.html">Trading<span>Hub</span></a></div>
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="bots.html" class="nav-link">Trading Bots</a>
+                    <a href="strategies.html" class="nav-link">Strategies</a>
+                    <a href="education.html" class="nav-link active">Education</a>
+                    <a href="pricing.html" class="nav-link">Pricing</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+                <div class="nav-auth">
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                    <a href="signup.html" class="btn btn-primary">Sign Up</a>
+                </div>
+                <button class="mobile-toggle"><span></span><span></span><span></span></button>
+            </div>
+            <div class="mobile-menu">
+                <a href="index.html" class="mobile-link">Home</a>
+                <a href="bots.html" class="mobile-link">Trading Bots</a>
+                <a href="strategies.html" class="mobile-link">Strategies</a>
+                <a href="education.html" class="mobile-link active">Education</a>
+                <a href="pricing.html" class="mobile-link">Pricing</a>
+                <a href="contact.html" class="mobile-link">Contact</a>
+                <div class="mobile-auth">
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                    <a href="signup.html" class="btn btn-primary">Sign Up</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="page-container">
+            <h1 class="page-title">📚 Education Center</h1>
+            <p class="page-subtitle">Learn automated trading from scratch with our comprehensive courses, tutorials, and guides.</p>
+            
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-header">
+                        <span class="course-level beginner">BEGINNER</span>
+                        <h2 class="course-name">Automated Trading Fundamentals</h2>
+                        <p class="course-desc">Learn the basics of algorithmic trading, bot setup, and risk management.</p>
+                        <div class="course-meta">
+                            <span>⏱️ 8 hours</span>
+                            <span>📖 12 lessons</span>
+                            <span>🎓 Certificate</span>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <ul class="module-list">
+                            <li>Introduction to Algorithmic Trading</li>
+                            <li>Setting Up Your First Trading Bot</li>
+                            <li>Understanding Risk Management</li>
+                            <li>Basic Trading Strategies</li>
+                            <li>Backtesting Fundamentals</li>
+                        </ul>
+                        <button class="btn btn-primary" style="width: 100%; margin-top: 20px; padding: 15px;">Start Course (Free)</button>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-header">
+                        <span class="course-level">INTERMEDIATE</span>
+                        <h2 class="course-name">Deriv API Mastery</h2>
+                        <p class="course-desc">Complete guide to integrating with Deriv API for automated trading.</p>
+                        <div class="course-meta">
+                            <span>⏱️ 12 hours</span>
+                            <span>📖 18 lessons</span>
+                            <span>🎓 Certificate</span>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <ul class="module-list">
+                            <li>Deriv API Authentication</li>
+                            <li>WebSocket Connection Setup</li>
+                            <li>Real-time Market Data</li>
+                            <li>Placing Automated Orders</li>
+                            <li>Portfolio Management</li>
+                        </ul>
+                        <button class="btn btn-primary" style="width: 100%; margin-top: 20px; padding: 15px;">Enroll Now ($49)</button>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-header">
+                        <span class="course-level advanced">ADVANCED</span>
+                        <h2 class="course-name">Advanced Bot Development</h2>
+                        <p class="course-desc">Build sophisticated trading bots with machine learning and advanced strategies.</p>
+                        <div class="course-meta">
+                            <span>⏱️ 20 hours</span>
+                            <span>📖 24 lessons</span>
+                            <span>🎓 Certificate</span>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <ul class="module-list">
+                            <li>Machine Learning for Trading</li>
+                            <li>Advanced Risk Models</li>
+                            <li>Multi-Timeframe Analysis</li>
+                            <li>Optimization Techniques</li>
+                            <li>Live Deployment</li>
+                        </ul>
+                        <button class="btn btn-primary" style="width: 100%; margin-top: 20px; padding: 15px;">Enroll Now ($99)</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="main-footer">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>TradingHub</h3>
+                    <p style="color: #aaa; font-size: 1.6rem; line-height: 1.6;">Advanced trading automation platform connecting to Deriv API.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Learning Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Video Tutorials</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Community Forum</a></li>
+                        <li><a href="#">Webinars</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">© 2024 TradingHub. All rights reserved.</div>
+        </footer>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const mobileToggle = document.querySelector('.mobile-toggle');
+                const mobileMenu = document.querySelector('.mobile-menu');
+                if (mobileToggle) {
+                    mobileToggle.addEventListener('click', function() {
+                        mobileMenu.classList.toggle('active');
+                        const spans = this.querySelectorAll('span');
+                        if (mobileMenu.classList.contains('active')) {
+                            spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
+                            spans[1].style.opacity = '0';
+                            spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+                        } else {
+                            spans[0].style.transform = 'none';
+                            spans[1].style.opacity = '1';
+                            spans[2].style.transform = 'none';
+                        }
+                    });
+                }
+                document.querySelectorAll('.btn-primary').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        if (this.textContent.includes('Free')) {
+                            alert('Starting free course... Redirecting to lessons.');
+                        } else {
+                            alert('Course enrollment requires an account. Please sign up first.');
+                        }
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>
