@@ -298,3 +298,159 @@
         padding: 40px 20px;
     }
 }
+/* ===== MOBILE OPTIMIZATION FIXES ===== */
+@media (max-width: 768px) {
+    /* Fix hero section padding */
+    .hero-section {
+        margin-top: 70px;
+        padding: 60px 20px;
+    }
+    
+    /* Better hero title sizing */
+    .hero-title {
+        font-size: 2.8rem;
+        line-height: 1.3;
+        margin-bottom: 15px;
+    }
+    
+    /* Better hero subtitle */
+    .hero-subtitle {
+        font-size: 1.6rem;
+        line-height: 1.5;
+        margin-bottom: 30px;
+    }
+    
+    /* Stack buttons vertically */
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+    
+    /* Full width buttons */
+    .hero-buttons .btn {
+        width: 100%;
+        text-align: center;
+        padding: 15px;
+        font-size: 1.6rem;
+    }
+    
+    /* Fix feature cards */
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 40px 20px;
+    }
+    
+    .feature-card-tradinghub {
+        padding: 25px;
+        margin: 0 10px;
+    }
+    
+    .feature-icon-tradinghub {
+        width: 60px;
+        height: 60px;
+        font-size: 2.4rem;
+        margin-bottom: 20px;
+    }
+    
+    .feature-title-tradinghub {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+    
+    .feature-description-tradinghub {
+        font-size: 1.5rem;
+        line-height: 1.6;
+    }
+    
+    /* Fix dashboard stats */
+    .dashboard-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .stat-card {
+        padding: 20px 15px;
+    }
+    
+    .stat-value {
+        font-size: 2.4rem;
+    }
+    
+    .stat-label {
+        font-size: 1.4rem;
+    }
+    
+    /* Fix console output */
+    .console-output {
+        font-size: 1.2rem;
+        padding: 15px;
+        max-height: 150px;
+    }
+    
+    /* CTA section improvements */
+    .cta-section {
+        padding: 60px 20px;
+    }
+    
+    .cta-title {
+        font-size: 2.4rem;
+        margin-bottom: 15px;
+    }
+    
+    .cta-subtitle {
+        font-size: 1.6rem;
+        margin-bottom: 30px;
+    }
+    
+    /* Footer improvements */
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .footer-column h3 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+    
+    .footer-links a {
+        font-size: 1.5rem;
+    }
+    
+    .copyright {
+        font-size: 1.3rem;
+        padding-top: 20px;
+        margin-top: 40px;
+    }
+}
+
+/* Extra small phones (iPhone SE, etc) */
+@media (max-width: 375px) {
+    .hero-title {
+        font-size: 2.4rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.4rem;
+    }
+    
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav-container {
+        padding: 0 15px;
+    }
+    
+    .nav-logo a {
+        font-size: 2rem;
+    }
+    
+    .feature-card-tradinghub {
+        padding: 20px;
+        margin: 0;
+    }
+}
