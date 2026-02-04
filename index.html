@@ -122,6 +122,7 @@
                 transition: all 0.3s ease;
                 cursor: pointer;
                 border: none;
+                min-height: 44px; /* Better touch target for mobile */
             }
             
             .btn-outline {
@@ -157,6 +158,8 @@
                 border: none;
                 cursor: pointer;
                 padding: 10px;
+                min-height: 44px; /* Better touch target */
+                min-width: 44px; /* Better touch target */
             }
             
             .mobile-toggle span {
@@ -183,6 +186,9 @@
                 font-weight: 600;
                 font-size: 1.8rem;
                 border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+                min-height: 44px; /* Better touch target */
+                display: flex;
+                align-items: center;
             }
             
             .mobile-link:last-child {
@@ -297,6 +303,9 @@
                 display: inline-flex;
                 align-items: center;
                 gap: 8px;
+                min-height: 44px; /* Better touch target */
+                display: inline-flex;
+                align-items: center;
             }
             
             .feature-link:hover {
@@ -392,8 +401,43 @@
                 margin-right: auto;
             }
             
-            /* ===== RESPONSIVE DESIGN ===== */
+            /* ===== MOBILE OPTIMIZATION FIXES ===== */
             @media (max-width: 768px) {
+                /* Fix hero section */
+                .hero-section {
+                    margin-top: 70px;
+                    padding: 60px 20px !important;
+                }
+                
+                .hero-title {
+                    font-size: 2.8rem !important;
+                    line-height: 1.3;
+                    margin-bottom: 15px;
+                }
+                
+                .hero-subtitle {
+                    font-size: 1.6rem !important;
+                    line-height: 1.5;
+                    margin-bottom: 30px;
+                }
+                
+                /* Stack buttons vertically */
+                .hero-buttons {
+                    flex-direction: column !important;
+                    gap: 15px;
+                    width: 100%;
+                }
+                
+                /* Full width buttons */
+                .hero-buttons .btn {
+                    width: 100% !important;
+                    text-align: center;
+                    padding: 15px !important;
+                    font-size: 1.6rem !important;
+                    display: block;
+                }
+                
+                /* Navigation fixes */
                 .nav-menu, .nav-auth {
                     display: none;
                 }
@@ -406,30 +450,42 @@
                     display: block;
                 }
                 
-                .hero-title {
-                    font-size: 3.2rem;
-                }
-                
-                .hero-subtitle {
-                    font-size: 1.8rem;
-                }
-                
-                .hero-buttons {
-                    flex-direction: column;
-                    align-items: center;
-                }
-                
+                /* Fix feature cards */
                 .features-grid {
-                    grid-template-columns: 1fr;
-                    padding: 40px 20px;
+                    grid-template-columns: 1fr !important;
+                    gap: 25px;
+                    padding: 40px 20px !important;
                 }
                 
+                .feature-card-tradinghub {
+                    padding: 25px !important;
+                    margin: 0 10px;
+                }
+                
+                .feature-icon-tradinghub {
+                    width: 60px !important;
+                    height: 60px !important;
+                    font-size: 2.4rem !important;
+                    margin-bottom: 20px;
+                }
+                
+                .feature-title-tradinghub {
+                    font-size: 2rem !important;
+                    margin-bottom: 15px;
+                }
+                
+                .feature-description-tradinghub {
+                    font-size: 1.5rem !important;
+                    line-height: 1.6;
+                }
+                
+                /* Fix dashboard */
                 .section-title {
-                    font-size: 2.8rem;
+                    font-size: 2.8rem !important;
                 }
                 
                 .dashboard-preview {
-                    padding: 20px;
+                    padding: 20px !important;
                 }
                 
                 .dashboard-header {
@@ -438,16 +494,97 @@
                     text-align: center;
                 }
                 
+                .dashboard-stats {
+                    grid-template-columns: repeat(2, 1fr) !important;
+                    gap: 15px;
+                }
+                
+                .stat-card {
+                    padding: 20px 15px !important;
+                }
+                
+                .stat-value {
+                    font-size: 2.4rem !important;
+                }
+                
+                .stat-label {
+                    font-size: 1.4rem !important;
+                }
+                
+                /* Fix console output */
+                .console-output {
+                    font-size: 1.2rem !important;
+                    padding: 15px !important;
+                    max-height: 150px;
+                }
+                
+                /* CTA section */
                 .cta-section {
-                    padding: 60px 20px;
+                    padding: 60px 20px !important;
                 }
                 
                 .cta-title {
-                    font-size: 2.8rem;
+                    font-size: 2.4rem !important;
+                    margin-bottom: 15px;
                 }
                 
                 .cta-subtitle {
-                    font-size: 1.8rem;
+                    font-size: 1.6rem !important;
+                    margin-bottom: 30px;
+                }
+                
+                /* Footer improvements */
+                .footer-container {
+                    grid-template-columns: 1fr !important;
+                    gap: 30px;
+                    text-align: center;
+                }
+                
+                .footer-column h3 {
+                    font-size: 1.8rem !important;
+                    margin-bottom: 15px;
+                }
+                
+                .footer-links a {
+                    font-size: 1.5rem !important;
+                }
+                
+                .copyright {
+                    font-size: 1.3rem !important;
+                    padding-top: 20px;
+                    margin-top: 40px;
+                }
+            }
+            
+            /* Extra small phones (iPhone SE, etc) */
+            @media (max-width: 375px) {
+                .hero-title {
+                    font-size: 2.4rem !important;
+                }
+                
+                .hero-subtitle {
+                    font-size: 1.4rem !important;
+                }
+                
+                .dashboard-stats {
+                    grid-template-columns: 1fr !important;
+                }
+                
+                .nav-container {
+                    padding: 0 15px !important;
+                }
+                
+                .nav-logo a {
+                    font-size: 2rem !important;
+                }
+                
+                .feature-card-tradinghub {
+                    padding: 20px !important;
+                    margin: 0;
+                }
+                
+                .hero-buttons .btn {
+                    padding: 18px !important; /* Larger touch target */
                 }
             }
             
@@ -486,6 +623,9 @@
                 text-decoration: none;
                 font-size: 1.6rem;
                 transition: color 0.3s;
+                min-height: 30px;
+                display: flex;
+                align-items: center;
             }
             
             .footer-links a:hover {
@@ -499,6 +639,18 @@
                 border-top: 1px solid rgba(255, 255, 255, 0.1);
                 color: #888;
                 font-size: 1.4rem;
+                line-height: 1.6;
+            }
+            
+            /* Prevent text size adjustment on mobile */
+            html {
+                -webkit-text-size-adjust: 100%;
+                text-size-adjust: 100%;
+            }
+            
+            /* Better tap highlights */
+            * {
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
             }
         </style>
     </head>
@@ -510,7 +662,7 @@
                 src="https://www.googletagmanager.com/ns.html?id=GTM-KV9538TF"
                 height="0"
                 width="0"
-                style="display: none; visibility: hidden"
+                style="display: none; visibility hidden"
             ></iframe>
         </noscript>
         <!-- End Google Tag Manager (noscript) -->
@@ -540,7 +692,7 @@
                 </div>
                 
                 <!-- Mobile Menu Toggle -->
-                <button class="mobile-toggle">
+                <button class="mobile-toggle" aria-label="Toggle mobile menu">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -800,17 +952,52 @@
             })(window, document, [].slice);
         </script>
         
-        <!-- Application JavaScript -->
+        <!-- Application JavaScript with Mobile Optimizations -->
         <script>
+            // Mobile viewport fix for iOS
+            function fixMobileViewport() {
+                const viewport = document.querySelector('meta[name="viewport"]');
+                if (viewport && /iPhone|iPad|iPod/.test(navigator.userAgent)) {
+                    viewport.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
+                }
+            }
+
+            // Better touch handling for mobile
+            function setupMobileTouch() {
+                // Prevent zoom on double tap
+                document.addEventListener('touchstart', function(event) {
+                    if (event.touches.length > 1) {
+                        event.preventDefault();
+                    }
+                }, { passive: false });
+
+                // Better touch feedback for buttons
+                document.querySelectorAll('.btn, .nav-link, .feature-link, .mobile-link').forEach(element => {
+                    element.style.touchAction = 'manipulation';
+                    element.addEventListener('touchstart', function() {
+                        this.style.opacity = '0.7';
+                        this.style.transform = 'scale(0.98)';
+                    });
+                    element.addEventListener('touchend', function() {
+                        this.style.opacity = '1';
+                        this.style.transform = 'scale(1)';
+                    });
+                    element.addEventListener('touchcancel', function() {
+                        this.style.opacity = '1';
+                        this.style.transform = 'scale(1)';
+                    });
+                });
+            }
+
             // Mobile menu toggle
-            document.addEventListener('DOMContentLoaded', function() {
-                console.log('TradingHub Platform Loaded');
-                
+            function setupMobileMenu() {
                 const mobileToggle = document.querySelector('.mobile-toggle');
                 const mobileMenu = document.querySelector('.mobile-menu');
                 
                 if (mobileToggle) {
-                    mobileToggle.addEventListener('click', function() {
+                    // Add touch events for mobile
+                    mobileToggle.addEventListener('touchstart', function(e) {
+                        e.preventDefault();
                         mobileMenu.classList.toggle('active');
                         
                         // Animate hamburger to X
@@ -825,7 +1012,37 @@
                             spans[2].style.transform = 'none';
                         }
                     });
+                    
+                    // Also support click for desktop
+                    mobileToggle.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        mobileMenu.classList.toggle('active');
+                        
+                        const spans = this.querySelectorAll('span');
+                        if (mobileMenu.classList.contains('active')) {
+                            spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
+                            spans[1].style.opacity = '0';
+                            spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+                        } else {
+                            spans[0].style.transform = 'none';
+                            spans[1].style.opacity = '1';
+                            spans[2].style.transform = 'none';
+                        }
+                    });
                 }
+                
+                // Close mobile menu when clicking outside
+                document.addEventListener('touchstart', function(e) {
+                    if (mobileMenu && mobileMenu.classList.contains('active')) {
+                        if (!mobileMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+                            mobileMenu.classList.remove('active');
+                            const spans = mobileToggle.querySelectorAll('span');
+                            spans[0].style.transform = 'none';
+                            spans[1].style.opacity = '1';
+                            spans[2].style.transform = 'none';
+                        }
+                    }
+                });
                 
                 // Update active nav link on click
                 const navLinks = document.querySelectorAll('.nav-link, .mobile-link');
@@ -834,125 +1051,4 @@
                         // Remove active class from all links
                         navLinks.forEach(l => l.classList.remove('active'));
                         
-                        // Add active class to clicked link
-                        this.classList.add('active');
-                        
-                        // Close mobile menu if open
-                        if (mobileMenu && mobileMenu.classList.contains('active')) {
-                            mobileMenu.classList.remove('active');
-                            const spans = mobileToggle.querySelectorAll('span');
-                            spans[0].style.transform = 'none';
-                            spans[1].style.opacity = '1';
-                            spans[2].style.transform = 'none';
-                        }
-                    });
-                });
-                
-                // Simulate live trading data
-                simulateLiveTrading();
-                
-                // Start demo button functionality
-                document.querySelectorAll('.btn-primary, .btn-outline').forEach(button => {
-                    button.addEventListener('click', function(e) {
-                        if (this.textContent.includes('Start') || this.textContent.includes('Demo')) {
-                            startTradingDemo();
-                        }
-                    });
-                });
-            });
-            
-            // Simulate live trading updates
-            function simulateLiveTrading() {
-                const liveLogs = document.getElementById('liveLogs');
-                const stats = ['profitValue', 'activeBots', 'winRate', 'tradesToday'];
-                
-                let logCount = 0;
-                let updateInterval;
-                
-                // Start live updates after 3 seconds
-                setTimeout(() => {
-                    updateInterval = setInterval(() => {
-                        logCount++;
-                        
-                        // Add new log entry
-                        const time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second:'2-digit'});
-                        const messages = [
-                            `[${time}] EUR/USD trade executed: +$${(Math.random() * 50).toFixed(2)}`,
-                            `[${time}] Bot #${Math.floor(Math.random() * 8) + 1} adjusted parameters`,
-                            `[${time}] Market analysis updated - Bullish trend detected`,
-                            `[${time}] New trading signal generated: GBP/JPY`,
-                            `[${time}] Risk assessment: Low volatility period`
-                        ];
-                        
-                        const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-                        
-                        if (liveLogs) {
-                            const logEntry = document.createElement('div');
-                            logEntry.textContent = randomMessage;
-                            liveLogs.appendChild(logEntry);
-                            
-                            // Keep only last 5 logs
-                            if (liveLogs.children.length > 5) {
-                                liveLogs.removeChild(liveLogs.firstChild);
-                            }
-                            
-                            // Scroll to bottom
-                            liveLogs.parentElement.scrollTop = liveLogs.parentElement.scrollHeight;
-                        }
-                        
-                        // Update stats randomly
-                        if (logCount % 3 === 0) {
-                            document.getElementById('profitValue').textContent = 
-                                `+${(12.5 + Math.random() * 3).toFixed(1)}%`;
-                            document.getElementById('winRate').textContent = 
-                                `${Math.floor(80 + Math.random() * 10)}%`;
-                            document.getElementById('tradesToday').textContent = 
-                                Math.floor(127 + Math.random() * 20);
-                        }
-                        
-                    }, 3000);
-                }, 3000);
-                
-                // Stop simulation after 30 logs
-                setTimeout(() => {
-                    if (updateInterval) clearInterval(updateInterval);
-                    const time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second:'2-digit'});
-                    if (liveLogs) {
-                        const logEntry = document.createElement('div');
-                        logEntry.textContent = `[${time}] Demo simulation completed. Connect to live API for real trading.`;
-                        logEntry.style.color = '#667eea';
-                        liveLogs.appendChild(logEntry);
-                    }
-                }, 90000);
-            }
-            
-            // Start trading demo
-            function startTradingDemo() {
-                const liveLogs = document.getElementById('liveLogs');
-                if (liveLogs) {
-                    const time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second:'2-digit'});
-                    const demoStart = document.createElement('div');
-                    demoStart.textContent = `[${time}] 🚀 Demo trading session started!`;
-                    demoStart.style.color = '#4CAF50';
-                    demoStart.style.fontWeight = 'bold';
-                    liveLogs.appendChild(demoStart);
-                    
-                    // Update stats for demo
-                    document.getElementById('activeBots').textContent = '12';
-                    document.getElementById('profitValue').textContent = '+15.8%';
-                    document.getElementById('winRate').textContent = '89%';
-                }
-                
-                // Show notification
-                alert('Demo trading session started! Simulating live market data for 60 seconds.');
-            }
-            
-            // Log Deriv API connection info
-            console.log('Deriv API Configuration:');
-            console.log('- WebSocket: wss://ws.binaryws.com/websockets/v3');
-            console.log('- P2P API: https://p2p.deriv.com/api/v1');
-            console.log('- Docs: https://developers.deriv.com');
-            console.log('Note: Real API integration requires backend server for secure token handling.');
-        </script>
-    </body>
-</html>
+                       
